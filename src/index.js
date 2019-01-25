@@ -3,9 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { Provider } from 'mobx-react'
 import store from './Store/Inventory'
 
-ReactDOM.render(<App store={store} />, document.getElementById('root'));
+const inventory = store
+ReactDOM.render(<Provider inventory={inventory}>
+                 <App />
+                </Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
